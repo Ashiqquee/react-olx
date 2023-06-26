@@ -7,6 +7,7 @@ import Search from '../../assets/Search';
 import Arrow from '../../assets/Arrow';
 import SellButton from '../../assets/SellButton';
 import SellButtonPlus from '../../assets/SellButtonPlus';
+import { Link } from 'react-router-dom';
 function Header() {
   const {firebase} = useContext(FirebaseContext)
   const {user} = useContext(AuthContext);
@@ -38,7 +39,7 @@ function Header() {
           <Arrow></Arrow>
         </div>
         <div className="loginPage">
-          <span>{user? `Welcome ${user.displayName }`: 'Login'}</span>
+          <span>{user ? `Welcome ${user.displayName}` : <Link to="/login">Login</Link>}</span>
           <hr />
           
         </div>
@@ -50,7 +51,7 @@ function Header() {
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>
-            <span>SELL</span>
+            <span><Link to="/sell">Sell</Link></span>
           </div>
         </div>
       </div>
